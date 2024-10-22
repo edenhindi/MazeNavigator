@@ -1,7 +1,9 @@
 # Maze Solver Robot with Charging Station
 ## Overview
 
-This project involves a robot designed to autonomously navigate and solve unknown mazes while locating and utilizing the charging stations that are scattered around the map. The robot uses hierarchical planning where on the high-level to select which charging station to go to, and a low-level planning to motion plan to the exit of the maze.
+This project involves a robot designed to autonomously navigate and solve unknown mazes while locating and utilizing the charging stations that are scattered around the map.
+
+The robot uses hierarchical planning where on the high-level to select which charging station to go to, and a low-level planning to motion plan to the exit of the maze.
 On the high-level planning, it uses POPF planner which is a temporal-numeric planner and a corresponding pddl file. The low-level planning is achieved using move_base package that uses a global path planner and a local path planner, where it uses the gmapping pkg to map with slam in real time. 
 
 Built on ROS Noetic, this system integrates various sensors and algorithms for effective maze exploration and navigation.
@@ -15,7 +17,7 @@ Built on ROS Noetic, this system integrates various sensors and algorithms for e
   
 
 ## Installation
-(based upon the installation tutorial in cognitive robots course in the Technion univeristy)
+(based upon the installation tutorial in cognitive robots course at the Technion university)
 Follow these steps to set up the project on your machine:
 
 ### Prerequisites
