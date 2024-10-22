@@ -1,0 +1,9 @@
+<launch>
+  <!-- Launch the first Python script -->
+  <node pkg="final_project" type="turtle.py" name="turtle" output="screen">
+  </node>
+
+  <!-- Launch the second Python script -->
+  <node pkg="final_project" type="battery.py" name="battery" output="screen">
+  </node>
+</launch>
