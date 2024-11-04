@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 import rospy
-from std_msgs.msg import Float32
+from std_msgs.msg import Float32, Bool
 from nav_msgs.msg import Odometry
 from visualization_msgs.msg import Marker
+import coordinates
+
 RADIUS = 0.25
-charging_stations = [(0, 1.1),(2.335,5)]
+MARGIN = 1
+
+
+global charging_stations
+
+
 
 def distance(loc1, loc2):
     return ((loc1[0]-loc2[0])**2 + (loc1[1]-loc2[1])**2)**.5 # L2 distance
@@ -19,6 +26,9 @@ def odom_callback(msg):
     y = pos.y
     global loc
     loc = (x,y)
+
+def done_callback(msg):
+    rospy.signal_shutdown(f"Maze completed: final_battery {battery_level:.2f}")
 
 def publish_marker(battery_level, charging):
     marker = Marker()
@@ -50,13 +60,19 @@ def publish_marker(battery_level, charging):
 if __name__ == "__main__":
     rospy.init_node("battery_charge")
     rospy.loginfo("Node has been started")
-    
 
-    battery_level = 100.0
+    world = rospy.get_param('/battery/world')
+    if 'small' in world:
+        charging_stations = coordinates.small[1:-1] # only the charging stations
+    else:
+        MARGIN = 2
+        charging_stations = coordinates.medium[1:-1]
+
+    battery_level = 100.0*MARGIN
     battery_pub = rospy.Publisher('/battery_level', Float32, queue_size=10)
     marker_pub = rospy.Publisher('/battery_marker', Marker, queue_size=10)
     odom_sub = rospy.Subscriber('/odom', Odometry, odom_callback)
-
+    done_sub = rospy.Subscriber('/maze_done', Bool, done_callback)
     rate = rospy.Rate(10)
     i = 0
     while not rospy.is_shutdown():
@@ -68,11 +84,15 @@ if __name__ == "__main__":
             charging = False
         else:
             battery_level += 0.5 # 5 percent gain per second
-            if battery_level > 100:
-                battery_level = 100
+            if battery_level > 100 * MARGIN:
+                battery_level = 100 * MARGIN
             charging = True
 
         battery_pub.publish(battery_level)
+
+        if battery_level <= 0:
+            break
+
         if i % 10 == 0:
             rospy.loginfo(battery_level)
             i = 0
