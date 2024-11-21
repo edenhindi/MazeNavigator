@@ -10,9 +10,10 @@ from rosplan_dispatch_msgs.msg import CompletePlan
 from rosplan_knowledge_msgs.srv import KnowledgeUpdateService
 from rosplan_knowledge_msgs.msg import KnowledgeItem
 from diagnostic_msgs.msg import KeyValue
-from nav_msgs.msg import Odometry
+from nav_msgs.msg import Odometry, OccupancyGrid
 import os
 import math
+import numpy as np
 import coordinates
 from itertools import combinations, permutations
 
@@ -62,6 +63,10 @@ class MazeSolverNode:
         self.path_length_calculator = PathLengthCalculator()
 
         self.positions = None
+
+        self.updated_squares_counter = 0
+        self.total_discovered_squares = 0
+
         rospy.init_node("turtle_navigation")
 
         rospy.wait_for_service('/rosplan_problem_interface/problem_generation_server')
@@ -82,8 +87,12 @@ class MazeSolverNode:
         self.plan_sub = rospy.Subscriber('/rosplan_parsing_interface/complete_plan', CompletePlan, self.plan_callback)
 
         self.done_pub = rospy.Publisher('/maze_done',Bool, queue_size=10)
-
-        rospy.Timer(rospy.Duration(60),self.replan_callback)
+        replan_strategy = rospy.get_param('/turtle/replan_strategy')
+        self.replan_freq = rospy.get_param('/turtle/replan_freq')
+        if replan_strategy == "time":
+            rospy.Timer(rospy.Duration(self.replan_timer),self.replan_callback)
+        else:
+            rospy.Subscriber("/map", OccupancyGrid, self.map_callback)
 
         self.battery = 100
         world = rospy.get_param('/turtle/world')
@@ -118,6 +127,21 @@ class MazeSolverNode:
         if self.battery <= 0:
             rospy.logerr("Not enough battery to continue")
             rospy.signal_shutdown("Shutting Down the Node: Not enough bettery to continue")
+
+    def map_callback(self, map_data):
+        # Convert map data to a numpy array
+        map_array = np.array(map_data.data, dtype=np.int8)
+        
+        # Count updated pixels (non -1 values)
+        updated_pixels = np.sum(map_array != -1)
+        
+        self.updated_squares_counter += (updated_pixels -self.total_discovered_squares)
+        self.total_discovered_squares = updated_pixels
+        if self.updated_squares_counter > self.replan_freq:
+            self.updated_squares_counter = 0
+            rospy.loginfo("Replanning due to updated map")
+            rospy.loginfo(f"Total updated squares: {self.total_discovered_squares}")
+            self.replan()
 
     def get_high_level_plan(self,):
         try:
