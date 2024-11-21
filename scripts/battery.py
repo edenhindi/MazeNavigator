@@ -65,20 +65,23 @@ if __name__ == "__main__":
     if 'small' in world:
         charging_stations = coordinates.small[1:-1] # only the charging stations
     else:
-        MARGIN = 2
+        MARGIN = 3
         charging_stations = coordinates.medium[1:-1]
 
     battery_level = 100.0*MARGIN
+
     battery_pub = rospy.Publisher('/battery_level', Float32, queue_size=10)
     marker_pub = rospy.Publisher('/battery_marker', Marker, queue_size=10)
+
     odom_sub = rospy.Subscriber('/odom', Odometry, odom_callback)
     done_sub = rospy.Subscriber('/maze_done', Bool, done_callback)
+    
     rate = rospy.Rate(10)
     i = 0
     while not rospy.is_shutdown():
         is_near = is_near_charging_station(loc)
         if not is_near:
-            battery_level -= 0.2  # 2 percent loss per second
+            battery_level -= 0.05  # .5 percent loss per second
             if battery_level < 0:
                 battery_level = 0
             charging = False
@@ -93,7 +96,8 @@ if __name__ == "__main__":
         if battery_level <= 0:
             break
 
-        if i % 10 == 0:
+        if i % 50 == 0:
+            # every 5 seconds say the battery level
             rospy.loginfo(battery_level)
             i = 0
         i+=1

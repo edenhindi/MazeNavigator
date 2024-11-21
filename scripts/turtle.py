@@ -16,18 +16,59 @@ import math
 import coordinates
 from itertools import combinations, permutations
 
+from nav_msgs.srv import GetPlan
+from actionlib_msgs.msg import GoalID
+# from move_base_msgs.msg import PoseStamped
 MARGIN = 1
 
 RADIUS = 0.25
+class PathLengthCalculator:
+    def __init__(self) -> None:
+        self.global_planner = rospy.ServiceProxy('/move_base/NavfnROS/make_plan', GetPlan)
+
+    # for full path
+    def find_length(self, p1, p2):
+        start_pose = MoveBaseGoal()
+        start_pose.target_pose.header.frame_id = 'map'
+        start_pose.target_pose.pose.position.x = p1[0]
+        start_pose.target_pose.pose.position.y = p1[1]
+        start_pose.target_pose.pose.orientation.w = 1.0
+
+        goal_pose = MoveBaseGoal()
+        goal_pose.target_pose.header.frame_id = 'map'
+        goal_pose.target_pose.pose.position.x = p2[0]
+        goal_pose.target_pose.pose.position.y = p2[0]
+        goal_pose.target_pose.pose.orientation.w = 1.0
+
+        path = self.global_planner(start_pose.target_pose, goal_pose.target_pose, 0).plan
+
+        prev_pose = p1
+        distance = 0
+        for pose in path.poses:
+            pose = pose.pose
+            pose = (pose.position.x, pose.position.y)
+            distance += self.get_dist(prev_pose, pose)
+            prev_pose = pose
+        return distance
+    # for 2 points along a path
+    def get_dist(self, p1, p2):
+        return ((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2)**.5
+
+
 
 class MazeSolverNode:
     def __init__(self) -> None:
-        
+
+        self.path_length_calculator = PathLengthCalculator()
+
+        self.positions = None
         rospy.init_node("turtle_navigation")
+
         rospy.wait_for_service('/rosplan_problem_interface/problem_generation_server')
         rospy.wait_for_service('/rosplan_planner_interface/planning_server')
         rospy.wait_for_service('/rosplan_parsing_interface/parse_plan')
         rospy.wait_for_service('/rosplan_knowledge_base/update')
+
         self.problem_service = rospy.ServiceProxy('/rosplan_problem_interface/problem_generation_server', Empty)
         self.planning_service = rospy.ServiceProxy('/rosplan_planner_interface/planning_server', Empty)
         self.parsing_service = rospy.ServiceProxy('/rosplan_parsing_interface/parse_plan', Empty)
@@ -42,20 +83,26 @@ class MazeSolverNode:
 
         self.done_pub = rospy.Publisher('/maze_done',Bool, queue_size=10)
 
+        rospy.Timer(rospy.Duration(60),self.replan_callback)
+
         self.battery = 100
-        self.last_battery = 100
         world = rospy.get_param('/turtle/world')
         if 'small' in world:
             self.positions = coordinates.small 
         else:
             self.positions = coordinates.medium
-            MARGIN = 2
+            MARGIN = 3
             self.battery *= MARGIN
+        self.last_battery = self.battery
         self.names = [f"p{i+1}" for i in range(len(self.positions))]
         self.loc = (0,0)
         self.last_loc_name = "p1"
 
         self.current_plan = None
+
+        
+        self.cancel_pub = rospy.Publisher("/move_base/cancel", GoalID, queue_size=1)
+        
 
         self.write_problem()
 
@@ -117,7 +164,6 @@ class MazeSolverNode:
 
         for update_type, request in [(2, knowledge_position1), (0, knowledge_position2),(2,knowledge_battery1),(0,knowledge_battery2)]:
             response = knowledge_update(update_type, request)
-            rospy.loginfo(response)
 
         self.last_loc_name = self.get_current_station()
         self.last_battery = self.battery
@@ -126,12 +172,13 @@ class MazeSolverNode:
         self.get_high_level_plan()
 
     def calc_battery_loss(self,time):
-        return time*2 # 2 percent loss per second
+        return time # 2 percent loss per second
 
     def calc_time(self,p1, p2):
         loc1, loc2 = self.positions[p1], self.positions[p2]
-        dist = abs(loc1[0]-loc2[0]) + abs(loc1[1]-loc2[1])
-        return dist/0.22 * MARGIN # 0.22 is the maximum speed for burger turtle bot
+        # dist = abs(loc1[0]-loc2[0]) + abs(loc1[1]-loc2[1])
+        dist = self.path_length_calculator.find_length(loc1, loc2)
+        return dist/0.08 # 0.22 is the maximum speed for burger turtle bot
 
     def get_current_station(self):
         dist = float('inf')
@@ -172,18 +219,21 @@ class MazeSolverNode:
         
         curr_to_all = "\n".join([
             self.get_move_action_str(0,q)
-        for q in range(1,len(self.positions)-1)])
+        for q in range(1,len(self.positions))])
         
         station_to_end = "\n".join([
             self.get_move_action_str(q,-1)
-        for q in range(1,len(self.positions))])
+        for q in range(1,len(self.positions)-1)])
         
         return f"{between}\n{curr_to_all}\n{station_to_end}"
 
     def get_charging_station_str(self):
-        return "\n\t".join([f"(has-station p{i+1})" for i in range(1,len(self.positions)-1)])
+        return "\n\t".join([f"(has-station p{i+1})" for i in range(1,len(self.positions))])
 
     def write_problem(self):
+        self.ac.cancel_all_goals()
+        while(self.ac.get_state() == GoalStatus.ACTIVE):
+            rospy.sleep(.5)
         battery_domain = f"""(define (domain maze-navigation)
         (:requirements :strips :typing :fluents :durative-actions)
         (:types
@@ -243,7 +293,7 @@ class MazeSolverNode:
 
         dir_path = os.path.dirname(os.path.realpath(__file__))
         battery_problem_path = os.path.join(dir_path, "../battery_problem")
-
+        rospy.loginfo(battery_problem_path)
         with open(os.path.join(battery_problem_path,"battery_domain.pddl"),'w') as f:
             f.write(battery_domain)
         
@@ -253,6 +303,7 @@ class MazeSolverNode:
 
         if os.path.exists(os.path.join(battery_problem_path,"problem.pddl")):
             os.remove(os.path.join(battery_problem_path,"problem.pddl"))
+        if os.path.exists(os.path.join(battery_problem_path,"plan.pddl")):
             os.remove(os.path.join(battery_problem_path,"plan.pddl"))
 
         rospy.loginfo("Wrote the problem in pddl")
@@ -263,28 +314,25 @@ class MazeSolverNode:
     def handle_action(self, action):
         rospy.loginfo(f"Action: {action.name}")
         name = action.name
-        move_action = False
         if "move" in name:
-            rospy.loginfo("balls1")
-            ix = int(name[9])-1
+            ix = int(name[9:])-1
             goal_loc = self.positions[ix]
             success = self.handle_move(goal_loc)
-            move_action = True
         elif "charge" in name:
             success = self.handle_charge()
         else:
             rospy.logwarn(f"Unknown action {name}")
             success = False
-        return success, move_action
+        return success
 
     def handle_move(self, p):
-        rospy.loginfo("balls2")
         goal = MoveBaseGoal()
         goal.target_pose.header.frame_id = "map"
         goal.target_pose.header.stamp = rospy.Time.now()
 
-        goal.target_pose.pose = Pose(Point(p[0], p[1], 0), Quaternion(0, 0, 0.7071, 0.7071))
-
+        goal.target_pose.pose.position.x = p[0]
+        goal.target_pose.pose.position.y = p[1]
+        goal.target_pose.pose.orientation.w = 1
         self.ac.send_goal_and_wait(goal)
 
         if self.ac.get_state() == GoalStatus.SUCCEEDED:
@@ -295,17 +343,29 @@ class MazeSolverNode:
         rospy.sleep(0.1)
         return True
 
+    def replan_callback(self, event):
+        if self.ac.get_state() == GoalStatus.ACTIVE:
+            self.ac.cancel_goal()
+            rospy.loginfo("Current goal canceled for replanning")
+        
+        self.replan()
+
+
     def run_main_loop(self):
         self.get_high_level_plan()
         
         rate = rospy.Rate(1)
+
         while not rospy.is_shutdown():
             if self.current_plan:
                 for action in self.current_plan:
-                    success, move_action = self.handle_action(action)
-                    if not success or move_action: # if one action didn't succeed 
+                    success  = self.handle_action(action)
+                    rospy.loginfo(success)
+                    if not success: # if one action didn't succeed 
                         self.current_plan = None
+                        break
                 loc = self.loc
+                
                 if ((loc[0]-self.positions[-1][0])**2 + (loc[1]-self.positions[-1][1])**2)**.5 < RADIUS:
                     rospy.loginfo("Finished the maze!!!")
                     self.done_pub.publish(True)

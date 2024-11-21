@@ -15,8 +15,9 @@
 	(has-station p7)
 	(has-station p8)
 	(has-station p9)
+	(has-station p10)
 
-        (= (battery-level robot1) 200)
+        (= (battery-level robot1) 272.3999938964844)
 
     )
     (:goal (and
