@@ -56,7 +56,7 @@ sudo apt install ros-noetic-turtlebot3
 
 ```
 cd ~/catkin_ws/src/
-git clone -b noetic-devel https://github.com/ROBOTISGIT/turtlebot3_simulations.git
+git clone -b noetic-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
 ```
 (If you don't have git, install it with sudo apt install git-all)
 
