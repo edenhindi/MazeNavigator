@@ -88,23 +88,42 @@ class MazeSolverNode:
 
         self.done_pub = rospy.Publisher('/maze_done',Bool, queue_size=10)
         replan_strategy = rospy.get_param('/turtle/replan_strategy')
+        # print('*****'*10)
+        # print('replan_strategy:\n',replan_strategy)
+        # print('*****'*10)
         self.replan_freq = rospy.get_param('/turtle/replan_freq')
         if replan_strategy == "time":
-            rospy.Timer(rospy.Duration(self.replan_timer),self.replan_callback)
+            rospy.Timer(rospy.Duration(self.replan_freq),self.replan_callback)
         else:
             rospy.Subscriber("/map", OccupancyGrid, self.map_callback)
 
         self.battery = 100
         world = rospy.get_param('/turtle/world')
+        print('world name:\n',world)
         if 'small' in world:
-            self.positions = coordinates.small 
+            if '1' in world:
+                self.positions = coordinates.small1
+            elif '2' in world:
+                self.positions = coordinates.small2
+            else:
+                self.positions = coordinates.small 
         else:
-            self.positions = coordinates.medium
-            MARGIN = 3
+            if '1' in world:
+                self.positions = coordinates.medium1
+            elif '2' in world:
+                self.positions = coordinates.medium2
+            else:
+                self.positions = coordinates.medium 
+            MARGIN = 2.5
             self.battery *= MARGIN
+        print(self.positions)
         self.last_battery = self.battery
         self.names = [f"p{i+1}" for i in range(len(self.positions))]
-        self.loc = (0,0)
+        # self.loc = (0,0)
+        # print('*****'*10)
+        # print(f'{self.loc = }')
+        # print('*****'*10)
+        self.loc = self.positions[0]
         self.last_loc_name = "p1"
 
         self.current_plan = None
@@ -116,6 +135,8 @@ class MazeSolverNode:
         self.write_problem()
 
     def odom_callback(self, msg):
+        if not self.positions:
+            return
         pos = msg.pose.pose.position
         x = pos.x
         y = pos.y
@@ -125,8 +146,10 @@ class MazeSolverNode:
     def battery_callback(self, msg):
         self.battery = msg.data
         if self.battery <= 0:
+            self.ac.cancel_all_goals()
             rospy.logerr("Not enough battery to continue")
             rospy.signal_shutdown("Shutting Down the Node: Not enough bettery to continue")
+
 
     def map_callback(self, map_data):
         # Convert map data to a numpy array
@@ -196,13 +219,13 @@ class MazeSolverNode:
         self.get_high_level_plan()
 
     def calc_battery_loss(self,time):
-        return time # 2 percent loss per second
+        return 0.8 * time # 1 percent loss per second
 
     def calc_time(self,p1, p2):
         loc1, loc2 = self.positions[p1], self.positions[p2]
         # dist = abs(loc1[0]-loc2[0]) + abs(loc1[1]-loc2[1])
         dist = self.path_length_calculator.find_length(loc1, loc2)
-        return dist/0.08 # 0.22 is the maximum speed for burger turtle bot
+        return dist/0.1 # 0.22 is the maximum speed for burger turtle bot
 
     def get_current_station(self):
         dist = float('inf')

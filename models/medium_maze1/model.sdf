@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version='1.7'>
-  <model name='medium_maze'>
+  <model name='medium_maze1'>
     <pose>0.5 -4.5 0 0 -0 0</pose>
     <link name="Marker_Start">
     <pose>-0.5 4.5 0 0 -0 0</pose>
@@ -22,7 +22,7 @@
     </link>
 
     <link name="Marker_End">
-    <pose>0.5 -4.5 0 0 0</pose>
+    <pose>1.5 -2.5 0 0 0</pose>
     <visual name="Marker_End">
         <pose>0 0 0 0 0</pose>
         <geometry>
@@ -118,7 +118,7 @@
     </link>
 
     <link name="Marker_Station_5">
-    <pose>1.5 -2.5 0 0 0</pose>
+    <pose>4.5 -3.5 0 0 0</pose>
     <visual name="Marker_Station_5">
         <pose>0 0 0 0 0</pose>
         <geometry>
@@ -1469,7 +1469,7 @@
       </visual>
       <pose>0 -4 0 0 -0 -1.5708</pose>
     </link>
-        <link name='Wall_92'>
+    <link name='Wall_92'>
       <collision name='Wall_92_Collision'>
         <geometry>
           <box>
@@ -1501,3 +1501,4 @@
     <static>1</static>
   </model>
 </sdf>
+

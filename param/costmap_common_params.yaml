@@ -1,12 +1,71 @@
+# obstacle_range: 3.0
+# raytrace_range: 3.5
+
+# # footprint: [[-0.105, -0.105], [-0.105, 0.105], [0.041, 0.105], [0.041, -0.105]]
+# robot_radius: 0.105
+
+# inflation_radius: 0.3
+# cost_scaling_factor: 4.0
+
+# map_type: costmap
+# observation_sources: scan
+# scan: {sensor_frame: base_scan, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+
+
+# obstacle_range: 3.0
+# raytrace_range: 3.5
+
+# # Using robot_radius as it's more reliable for basic navigation
+# robot_radius: 0.105
+
+# # Adjusted for better corner navigation
+# inflation_radius: 0.35
+# cost_scaling_factor: 3.0
+
+# map_type: costmap
+# observation_sources: scan
+# scan: {
+#     sensor_frame: base_scan,
+#     data_type: LaserScan,
+#     topic: scan,
+#     marking: true,
+#     clearing: true
+# }
+
+# costmap_common_params.yaml
+
+
+
 obstacle_range: 3.0
 raytrace_range: 3.5
 
-# footprint: [[-0.105, -0.105], [-0.105, 0.105], [0.041, 0.105], [0.041, -0.105]]
-robot_radius: 0.105
-
-inflation_radius: 0.3
-cost_scaling_factor: 4.0
+robot_radius: 0.105  # Radius of the robot, matches TurtleBot3 Burger specs
+inflation_radius: 1  # Reduced for better cornering
+cost_scaling_factor: 10  # Lowered to make costmap less aggressive
 
 map_type: costmap
+
 observation_sources: scan
-scan: {sensor_frame: base_scan, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+scan: 
+    sensor_frame: base_scan
+    data_type: LaserScan
+    topic: scan
+    marking: true
+    clearing: true
+
+inflation_layer:
+    enabled: true
+    inflation_radius: 0.25
+    cost_scaling_factor: 2.5
+    inscribed_radius: 0.1
+    circumscribed_radius: 0.15
+
+static_layer:
+    enabled: true
+
+obstacle_layer:
+    enabled: true
+    obstacle_range: 3.0
+    raytrace_range: 3.5
+
+recovery_behavior_enabled: true

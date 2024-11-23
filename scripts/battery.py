@@ -65,7 +65,7 @@ if __name__ == "__main__":
     if 'small' in world:
         charging_stations = coordinates.small[1:-1] # only the charging stations
     else:
-        MARGIN = 3
+        MARGIN = 2.5
         charging_stations = coordinates.medium[1:-1]
 
     battery_level = 100.0*MARGIN

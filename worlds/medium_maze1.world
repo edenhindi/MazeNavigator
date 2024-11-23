@@ -20,7 +20,7 @@
 
     <!-- A maze -->
     <include>
-      <uri>model://medium_maze</uri>
+      <uri>model://medium_maze1</uri>
     </include>
 
     <physics type="ode">
