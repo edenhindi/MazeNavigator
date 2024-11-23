@@ -13,6 +13,7 @@ from diagnostic_msgs.msg import KeyValue
 from nav_msgs.msg import Odometry, OccupancyGrid
 import os
 import math
+import re
 import numpy as np
 import coordinates
 from itertools import combinations, permutations
@@ -38,7 +39,7 @@ class PathLengthCalculator:
         goal_pose = MoveBaseGoal()
         goal_pose.target_pose.header.frame_id = 'map'
         goal_pose.target_pose.pose.position.x = p2[0]
-        goal_pose.target_pose.pose.position.y = p2[0]
+        goal_pose.target_pose.pose.position.y = p2[1]
         goal_pose.target_pose.pose.orientation.w = 1.0
 
         path = self.global_planner(start_pose.target_pose, goal_pose.target_pose, 0).plan
@@ -219,7 +220,7 @@ class MazeSolverNode:
         self.get_high_level_plan()
 
     def calc_battery_loss(self,time):
-        return 0.8 * time # 1 percent loss per second
+        return time # 1 percent loss per second
 
     def calc_time(self,p1, p2):
         loc1, loc2 = self.positions[p1], self.positions[p2]
@@ -362,7 +363,7 @@ class MazeSolverNode:
         rospy.loginfo(f"Action: {action.name}")
         name = action.name
         if "move" in name:
-            ix = int(name[9:])-1
+            ix = get_last_number(name)-1
             goal_loc = self.positions[ix]
             success = self.handle_move(goal_loc)
         elif "charge" in name:
@@ -423,7 +424,16 @@ class MazeSolverNode:
                 
             rate.sleep()
 
-
+def get_last_number(string):
+    # Find all numbers in the string
+    numbers = re.findall(r'\d+', string)
+    
+    # If numbers are found, return the last one as an integer
+    if numbers:
+        return int(numbers[-1])
+    else:
+        return None  # Return None if no numbers are found
+    
 if __name__ == "__main__":
    
     node = MazeSolverNode()

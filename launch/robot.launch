@@ -5,7 +5,7 @@
     <param name="world" value="$(arg world)"/>
     <param name="replan_strategy" value="time"/> replan every x seconds
     <!-- <param name="replan_strategy" value="map"/>  replan when x new squares were found -->
-    <param name="replan_freq" value="40"/> <!-- replan every x seconds if replan_strategy is time else replan when x new squares were found -->
+    <param name="replan_freq" value="120"/> <!-- replan every x seconds if replan_strategy is time else replan when x new squares were found -->
   </node>
 
   <!-- Launch the second Python script -->
