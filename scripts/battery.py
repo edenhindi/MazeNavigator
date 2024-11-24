@@ -63,22 +63,15 @@ if __name__ == "__main__":
 
     world = rospy.get_param('/battery/world')
     if 'small' in world:
-        if '1' in world:
-            charging_stations = coordinates.small1[1:-1]
-        elif '2' in world:
-            charging_stations = coordinates.small2[1:-1]
-        else:
-            charging_stations = coordinates.small[1:-1]
+        charging_stations = coordinates.small[1:-1]
+        MARGIN = 0.75
     else:
-        MARGIN = 2.5
-        charging_stations = coordinates.medium[1:-1]
         if '1' in world:
             charging_stations = coordinates.medium1[1:-1]
-        elif '2' in world:
-            charging_stations = coordinates.medium2[1:-1]
+            MARGIN = 2.5
         else:
             charging_stations = coordinates.medium[1:-1] 
-        MARGIN = 2.5
+            MARGIN = 1.75
 
     battery_level = 100.0*MARGIN
 

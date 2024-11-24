@@ -4,7 +4,7 @@
     robot1 - robot
 )
 (:init
-    (at robot1 p1)
+    (at robot1 p9)
 
     (has-station p2)
     (has-station p3)
@@ -16,7 +16,7 @@
     (has-station p9)
     (has-station p10)
 
-    (= (battery-level robot1) 101.95)
+    (= (battery-level robot1) 250)
 
 )
 (:goal (and

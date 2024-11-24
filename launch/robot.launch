@@ -1,11 +1,11 @@
 <launch>
-  <arg name="world" default="$(find final_project)/worlds/medium_maze.world" doc="world type [small, small1, small2, medium, medium1, medium2]"/>
+  <arg name="world" default="$(find final_project)/worlds/medium_maze1.world" doc="world type [small_maze.world, medium_maze.world, medium_maze1.world]"/>
   <!-- Launch the first Python script -->
   <node pkg="final_project" type="turtle.py" name="turtle" output="screen" args="$(arg world)">
     <param name="world" value="$(arg world)"/>
-    <param name="replan_strategy" value="time"/> replan every x seconds
-    <!-- <param name="replan_strategy" value="map"/>  replan when x new squares were found -->
-    <param name="replan_freq" value="80"/> <!-- replan every x seconds if replan_strategy is time else replan when x new squares were found -->
+    <param name="replan_strategy" value="time"/> <!-- replan every x seconds -->
+     <!--<param name="replan_strategy" value="map"/> --> <!-- replan when x new squares were found -->
+    <param name="replan_freq" value="100"/>  <!-- replan every x seconds if replan_strategy is time else replan when x new squares were found -->
   </node>
 
   <!-- Launch the second Python script -->

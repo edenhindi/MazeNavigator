@@ -1,5 +1,5 @@
 <launch>
-  <arg name="world" default="$(find final_project)/worlds/medium_maze.world" doc="world type [small, small1, small2, medium, medium1, medium2]"/>
+  <arg name="world" default="$(find final_project)/worlds/medium_maze1.world" doc="world type [small_maze.world, medium_maze.world, medium_maze1.world]"/>
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
   <arg name="x_pos" default="0.0"/>
   <arg name="y_pos" default="0.0"/>

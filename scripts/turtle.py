@@ -102,21 +102,16 @@ class MazeSolverNode:
         world = rospy.get_param('/turtle/world')
         print('world name:\n',world)
         if 'small' in world:
-            if '1' in world:
-                self.positions = coordinates.small1
-            elif '2' in world:
-                self.positions = coordinates.small2
-            else:
-                self.positions = coordinates.small 
+            MARGIN = 0.75
+            self.positions = coordinates.small 
         else:
             if '1' in world:
                 self.positions = coordinates.medium1
-            elif '2' in world:
-                self.positions = coordinates.medium2
+                MARGIN = 2.5
             else:
                 self.positions = coordinates.medium 
-            MARGIN = 2.5
-            self.battery *= MARGIN
+                MARGIN = 1.75
+        self.battery = 100 * MARGIN
         print(self.positions)
         self.last_battery = self.battery
         self.names = [f"p{i+1}" for i in range(len(self.positions))]
@@ -220,7 +215,7 @@ class MazeSolverNode:
         self.get_high_level_plan()
 
     def calc_battery_loss(self,time):
-        return 1.15 * time # 1 percent loss per second
+        return 1.15 * time # 1.15 percent loss per second (overestimation)
 
     def calc_time(self,p1, p2):
         loc1, loc2 = self.positions[p1], self.positions[p2]
