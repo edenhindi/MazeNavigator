@@ -220,7 +220,7 @@ class MazeSolverNode:
         self.get_high_level_plan()
 
     def calc_battery_loss(self,time):
-        return time # 1 percent loss per second
+        return 1.15 * time # 1 percent loss per second
 
     def calc_time(self,p1, p2):
         loc1, loc2 = self.positions[p1], self.positions[p2]
@@ -341,7 +341,7 @@ class MazeSolverNode:
 
         dir_path = os.path.dirname(os.path.realpath(__file__))
         battery_problem_path = os.path.join(dir_path, "../battery_problem")
-        rospy.loginfo(battery_problem_path)
+        #rospy.loginfo(battery_problem_path)
         with open(os.path.join(battery_problem_path,"battery_domain.pddl"),'w') as f:
             f.write(battery_domain)
         
@@ -418,9 +418,9 @@ class MazeSolverNode:
                     rospy.loginfo("Finished the maze!!!")
                     self.done_pub.publish(True)
                     break
-                else:
-                    rospy.loginfo("Replanning!!!")
-                    self.replan()
+                #else:
+                    #rospy.loginfo("Replanning!!!")
+                    #self.replan()
                 
             rate.sleep()
 
