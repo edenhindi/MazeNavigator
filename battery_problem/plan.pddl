@@ -15,37 +15,9 @@ Post filtering unreachable actions:  [10%] [20%] [30%] [40%] [50%] [60%] [70%] [
 Have identified that bigger values of (battery-level robot1) are preferable
 [01;34mNo analytic limits found, not considering limit effects of goal-only operators[00m
 10% of the ground temporal actions in this problem are compression-safe
-Initial heuristic = 21.000
-b (20.000 | 4.000)b (19.000 | 4.101)b (18.000 | 4.101)b (17.000 | 4.101)b (16.000 | 4.101)b (15.000 | 4.101)b (14.000 | 4.101)b (13.000 | 4.101)b (12.000 | 4.101)b (11.000 | 4.101)b (10.000 | 4.101)b (9.000 | 4.101)b (8.000 | 4.101)b (7.000 | 4.101)b (6.000 | 4.101)b (5.000 | 4.101)b (4.000 | 4.101)b (3.000 | 4.101)b (2.000 | 4.101);;;; Solution Found
-; States evaluated: 31
-; Cost: 4.101
-; Time 0.04
-0.000: (move-p1-p10 robot1)  [4.000]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
-4.001: (charge robot1 p10)  [0.100]
+Initial heuristic = 2.000
+b (1.000 | 44.000);;;; Solution Found
+; States evaluated: 3
+; Cost: 44.000
+; Time 0.03
+0.000: (move-p1-p10 robot1)  [44.000]

@@ -305,12 +305,12 @@ class MazeSolverNode:
 
         (:durative-action charge
             :parameters (?r - robot ?p - position)
-            :duration (= ?duration 0.1)
+            :duration (= ?duration 1)
             :condition (and (at start (at ?r ?p))
             (at start (has-station ?p))
             ) 
             :effect 
-                (at end  (increase (battery-level ?r) 0.5) )
+                (at end  (increase (battery-level ?r) 5) )
         )
         
     )
@@ -388,7 +388,8 @@ class MazeSolverNode:
         else: return False
 
     def handle_charge(self):
-        rospy.sleep(0.1)
+        if self.battery <= 100*MARGIN-5:
+            rospy.sleep(1) 
         return True
 
     def replan_callback(self, event):

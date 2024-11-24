@@ -19,1259 +19,1259 @@
         
         (:durative-action move-p2-p3
             :parameters (?r - robot)
-            :duration (= ?duration 63)  
+            :duration (= ?duration 191)  
             :condition (and 
             (at start (at ?r p2))
-            (at start (>= (battery-level ?r) 73))
+            (at start (>= (battery-level ?r) 220))
             )
             :effect (and
                 (at end (at ?r p3))
                 (at start (not (at ?r p2)))
-                (at end (decrease (battery-level ?r) 73))
+                (at end (decrease (battery-level ?r) 220))
             ))
 
             
 (:durative-action move-p2-p4
             :parameters (?r - robot)
-            :duration (= ?duration 132)  
+            :duration (= ?duration 214)  
             :condition (and 
             (at start (at ?r p2))
-            (at start (>= (battery-level ?r) 152))
+            (at start (>= (battery-level ?r) 247))
             )
             :effect (and
                 (at end (at ?r p4))
                 (at start (not (at ?r p2)))
-                (at end (decrease (battery-level ?r) 152))
+                (at end (decrease (battery-level ?r) 247))
             ))
 
             
 (:durative-action move-p2-p5
             :parameters (?r - robot)
-            :duration (= ?duration 161)  
+            :duration (= ?duration 153)  
             :condition (and 
             (at start (at ?r p2))
-            (at start (>= (battery-level ?r) 185))
+            (at start (>= (battery-level ?r) 176))
             )
             :effect (and
                 (at end (at ?r p5))
                 (at start (not (at ?r p2)))
-                (at end (decrease (battery-level ?r) 185))
+                (at end (decrease (battery-level ?r) 176))
             ))
 
             
 (:durative-action move-p2-p6
             :parameters (?r - robot)
-            :duration (= ?duration 265)  
+            :duration (= ?duration 184)  
             :condition (and 
             (at start (at ?r p2))
-            (at start (>= (battery-level ?r) 305))
+            (at start (>= (battery-level ?r) 212))
             )
             :effect (and
                 (at end (at ?r p6))
                 (at start (not (at ?r p2)))
-                (at end (decrease (battery-level ?r) 305))
+                (at end (decrease (battery-level ?r) 212))
             ))
 
             
 (:durative-action move-p2-p7
             :parameters (?r - robot)
-            :duration (= ?duration 259)  
+            :duration (= ?duration 73)  
             :condition (and 
             (at start (at ?r p2))
-            (at start (>= (battery-level ?r) 298))
+            (at start (>= (battery-level ?r) 84))
             )
             :effect (and
                 (at end (at ?r p7))
                 (at start (not (at ?r p2)))
-                (at end (decrease (battery-level ?r) 298))
+                (at end (decrease (battery-level ?r) 84))
             ))
 
             
 (:durative-action move-p2-p8
             :parameters (?r - robot)
-            :duration (= ?duration 168)  
+            :duration (= ?duration 107)  
             :condition (and 
             (at start (at ?r p2))
-            (at start (>= (battery-level ?r) 194))
+            (at start (>= (battery-level ?r) 123))
             )
             :effect (and
                 (at end (at ?r p8))
                 (at start (not (at ?r p2)))
-                (at end (decrease (battery-level ?r) 194))
+                (at end (decrease (battery-level ?r) 123))
             ))
 
             
 (:durative-action move-p2-p9
             :parameters (?r - robot)
-            :duration (= ?duration 387)  
+            :duration (= ?duration 102)  
             :condition (and 
             (at start (at ?r p2))
-            (at start (>= (battery-level ?r) 445))
+            (at start (>= (battery-level ?r) 117))
             )
             :effect (and
                 (at end (at ?r p9))
                 (at start (not (at ?r p2)))
-                (at end (decrease (battery-level ?r) 445))
+                (at end (decrease (battery-level ?r) 117))
             ))
 
             
 (:durative-action move-p2-p10
             :parameters (?r - robot)
-            :duration (= ?duration 201)  
+            :duration (= ?duration 174)  
             :condition (and 
             (at start (at ?r p2))
-            (at start (>= (battery-level ?r) 231))
+            (at start (>= (battery-level ?r) 201))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p2)))
-                (at end (decrease (battery-level ?r) 231))
+                (at end (decrease (battery-level ?r) 201))
             ))
 
             
 (:durative-action move-p3-p2
             :parameters (?r - robot)
-            :duration (= ?duration 63)  
+            :duration (= ?duration 191)  
             :condition (and 
             (at start (at ?r p3))
-            (at start (>= (battery-level ?r) 72))
+            (at start (>= (battery-level ?r) 220))
             )
             :effect (and
                 (at end (at ?r p2))
                 (at start (not (at ?r p3)))
-                (at end (decrease (battery-level ?r) 72))
+                (at end (decrease (battery-level ?r) 220))
             ))
 
             
 (:durative-action move-p3-p4
             :parameters (?r - robot)
-            :duration (= ?duration 72)  
+            :duration (= ?duration 36)  
             :condition (and 
             (at start (at ?r p3))
-            (at start (>= (battery-level ?r) 83))
+            (at start (>= (battery-level ?r) 42))
             )
             :effect (and
                 (at end (at ?r p4))
                 (at start (not (at ?r p3)))
-                (at end (decrease (battery-level ?r) 83))
+                (at end (decrease (battery-level ?r) 42))
             ))
 
             
 (:durative-action move-p3-p5
             :parameters (?r - robot)
-            :duration (= ?duration 222)  
+            :duration (= ?duration 42)  
             :condition (and 
             (at start (at ?r p3))
-            (at start (>= (battery-level ?r) 255))
+            (at start (>= (battery-level ?r) 48))
             )
             :effect (and
                 (at end (at ?r p5))
                 (at start (not (at ?r p3)))
-                (at end (decrease (battery-level ?r) 255))
+                (at end (decrease (battery-level ?r) 48))
             ))
 
             
 (:durative-action move-p3-p6
             :parameters (?r - robot)
-            :duration (= ?duration 326)  
+            :duration (= ?duration 50)  
             :condition (and 
             (at start (at ?r p3))
-            (at start (>= (battery-level ?r) 375))
+            (at start (>= (battery-level ?r) 58))
             )
             :effect (and
                 (at end (at ?r p6))
                 (at start (not (at ?r p3)))
-                (at end (decrease (battery-level ?r) 375))
+                (at end (decrease (battery-level ?r) 58))
             ))
 
             
 (:durative-action move-p3-p7
             :parameters (?r - robot)
-            :duration (= ?duration 320)  
+            :duration (= ?duration 158)  
             :condition (and 
             (at start (at ?r p3))
-            (at start (>= (battery-level ?r) 369))
+            (at start (>= (battery-level ?r) 182))
             )
             :effect (and
                 (at end (at ?r p7))
                 (at start (not (at ?r p3)))
-                (at end (decrease (battery-level ?r) 369))
+                (at end (decrease (battery-level ?r) 182))
             ))
 
             
 (:durative-action move-p3-p8
             :parameters (?r - robot)
-            :duration (= ?duration 135)  
+            :duration (= ?duration 235)  
             :condition (and 
             (at start (at ?r p3))
-            (at start (>= (battery-level ?r) 156))
+            (at start (>= (battery-level ?r) 271))
             )
             :effect (and
                 (at end (at ?r p8))
                 (at start (not (at ?r p3)))
-                (at end (decrease (battery-level ?r) 156))
+                (at end (decrease (battery-level ?r) 271))
             ))
 
             
 (:durative-action move-p3-p9
             :parameters (?r - robot)
-            :duration (= ?duration 448)  
+            :duration (= ?duration 126)  
             :condition (and 
             (at start (at ?r p3))
-            (at start (>= (battery-level ?r) 515))
+            (at start (>= (battery-level ?r) 145))
             )
             :effect (and
                 (at end (at ?r p9))
                 (at start (not (at ?r p3)))
-                (at end (decrease (battery-level ?r) 515))
+                (at end (decrease (battery-level ?r) 145))
             ))
 
             
 (:durative-action move-p3-p10
             :parameters (?r - robot)
-            :duration (= ?duration 140)  
+            :duration (= ?duration 71)  
             :condition (and 
             (at start (at ?r p3))
-            (at start (>= (battery-level ?r) 161))
+            (at start (>= (battery-level ?r) 82))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p3)))
-                (at end (decrease (battery-level ?r) 161))
+                (at end (decrease (battery-level ?r) 82))
             ))
 
             
 (:durative-action move-p4-p2
             :parameters (?r - robot)
-            :duration (= ?duration 132)  
+            :duration (= ?duration 214)  
             :condition (and 
             (at start (at ?r p4))
-            (at start (>= (battery-level ?r) 152))
+            (at start (>= (battery-level ?r) 246))
             )
             :effect (and
                 (at end (at ?r p2))
                 (at start (not (at ?r p4)))
-                (at end (decrease (battery-level ?r) 152))
+                (at end (decrease (battery-level ?r) 246))
             ))
 
             
 (:durative-action move-p4-p3
             :parameters (?r - robot)
-            :duration (= ?duration 72)  
+            :duration (= ?duration 36)  
             :condition (and 
             (at start (at ?r p4))
-            (at start (>= (battery-level ?r) 83))
+            (at start (>= (battery-level ?r) 42))
             )
             :effect (and
                 (at end (at ?r p3))
                 (at start (not (at ?r p4)))
-                (at end (decrease (battery-level ?r) 83))
+                (at end (decrease (battery-level ?r) 42))
             ))
 
             
 (:durative-action move-p4-p5
             :parameters (?r - robot)
-            :duration (= ?duration 291)  
+            :duration (= ?duration 28)  
             :condition (and 
             (at start (at ?r p4))
-            (at start (>= (battery-level ?r) 335))
+            (at start (>= (battery-level ?r) 33))
             )
             :effect (and
                 (at end (at ?r p5))
                 (at start (not (at ?r p4)))
-                (at end (decrease (battery-level ?r) 335))
+                (at end (decrease (battery-level ?r) 33))
             ))
 
             
 (:durative-action move-p4-p6
             :parameters (?r - robot)
-            :duration (= ?duration 395)  
+            :duration (= ?duration 43)  
             :condition (and 
             (at start (at ?r p4))
-            (at start (>= (battery-level ?r) 455))
+            (at start (>= (battery-level ?r) 49))
             )
             :effect (and
                 (at end (at ?r p6))
                 (at start (not (at ?r p4)))
-                (at end (decrease (battery-level ?r) 455))
+                (at end (decrease (battery-level ?r) 49))
             ))
 
             
 (:durative-action move-p4-p7
             :parameters (?r - robot)
-            :duration (= ?duration 390)  
+            :duration (= ?duration 181)  
             :condition (and 
             (at start (at ?r p4))
-            (at start (>= (battery-level ?r) 448))
+            (at start (>= (battery-level ?r) 208))
             )
             :effect (and
                 (at end (at ?r p7))
                 (at start (not (at ?r p4)))
-                (at end (decrease (battery-level ?r) 448))
+                (at end (decrease (battery-level ?r) 208))
             ))
 
             
 (:durative-action move-p4-p8
             :parameters (?r - robot)
-            :duration (= ?duration 64)  
+            :duration (= ?duration 235)  
             :condition (and 
             (at start (at ?r p4))
-            (at start (>= (battery-level ?r) 74))
+            (at start (>= (battery-level ?r) 271))
             )
             :effect (and
                 (at end (at ?r p8))
                 (at start (not (at ?r p4)))
-                (at end (decrease (battery-level ?r) 74))
+                (at end (decrease (battery-level ?r) 271))
             ))
 
             
 (:durative-action move-p4-p9
             :parameters (?r - robot)
-            :duration (= ?duration 517)  
+            :duration (= ?duration 126)  
             :condition (and 
             (at start (at ?r p4))
-            (at start (>= (battery-level ?r) 595))
+            (at start (>= (battery-level ?r) 145))
             )
             :effect (and
                 (at end (at ?r p9))
                 (at start (not (at ?r p4)))
-                (at end (decrease (battery-level ?r) 595))
+                (at end (decrease (battery-level ?r) 145))
             ))
 
             
 (:durative-action move-p4-p10
             :parameters (?r - robot)
-            :duration (= ?duration 69)  
+            :duration (= ?duration 64)  
             :condition (and 
             (at start (at ?r p4))
-            (at start (>= (battery-level ?r) 79))
+            (at start (>= (battery-level ?r) 74))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p4)))
-                (at end (decrease (battery-level ?r) 79))
+                (at end (decrease (battery-level ?r) 74))
             ))
 
             
 (:durative-action move-p5-p2
             :parameters (?r - robot)
-            :duration (= ?duration 161)  
+            :duration (= ?duration 197)  
             :condition (and 
             (at start (at ?r p5))
-            (at start (>= (battery-level ?r) 185))
+            (at start (>= (battery-level ?r) 227))
             )
             :effect (and
                 (at end (at ?r p2))
                 (at start (not (at ?r p5)))
-                (at end (decrease (battery-level ?r) 185))
+                (at end (decrease (battery-level ?r) 227))
             ))
 
             
 (:durative-action move-p5-p3
             :parameters (?r - robot)
-            :duration (= ?duration 222)  
+            :duration (= ?duration 42)  
             :condition (and 
             (at start (at ?r p5))
-            (at start (>= (battery-level ?r) 255))
+            (at start (>= (battery-level ?r) 48))
             )
             :effect (and
                 (at end (at ?r p3))
                 (at start (not (at ?r p5)))
-                (at end (decrease (battery-level ?r) 255))
+                (at end (decrease (battery-level ?r) 48))
             ))
 
             
 (:durative-action move-p5-p4
             :parameters (?r - robot)
-            :duration (= ?duration 291)  
+            :duration (= ?duration 29)  
             :condition (and 
             (at start (at ?r p5))
-            (at start (>= (battery-level ?r) 334))
+            (at start (>= (battery-level ?r) 33))
             )
             :effect (and
                 (at end (at ?r p4))
                 (at start (not (at ?r p5)))
-                (at end (decrease (battery-level ?r) 334))
+                (at end (decrease (battery-level ?r) 33))
             ))
 
             
 (:durative-action move-p5-p6
             :parameters (?r - robot)
-            :duration (= ?duration 145)  
+            :duration (= ?duration 14)  
             :condition (and 
             (at start (at ?r p5))
-            (at start (>= (battery-level ?r) 167))
+            (at start (>= (battery-level ?r) 17))
             )
             :effect (and
                 (at end (at ?r p6))
                 (at start (not (at ?r p5)))
-                (at end (decrease (battery-level ?r) 167))
+                (at end (decrease (battery-level ?r) 17))
             ))
 
             
 (:durative-action move-p5-p7
             :parameters (?r - robot)
-            :duration (= ?duration 140)  
+            :duration (= ?duration 195)  
             :condition (and 
             (at start (at ?r p5))
-            (at start (>= (battery-level ?r) 161))
+            (at start (>= (battery-level ?r) 225))
             )
             :effect (and
                 (at end (at ?r p7))
                 (at start (not (at ?r p5)))
-                (at end (decrease (battery-level ?r) 161))
+                (at end (decrease (battery-level ?r) 225))
             ))
 
             
 (:durative-action move-p5-p8
             :parameters (?r - robot)
-            :duration (= ?duration 327)  
+            :duration (= ?duration 207)  
             :condition (and 
             (at start (at ?r p5))
-            (at start (>= (battery-level ?r) 376))
+            (at start (>= (battery-level ?r) 238))
             )
             :effect (and
                 (at end (at ?r p8))
                 (at start (not (at ?r p5)))
-                (at end (decrease (battery-level ?r) 376))
+                (at end (decrease (battery-level ?r) 238))
             ))
 
             
 (:durative-action move-p5-p9
             :parameters (?r - robot)
-            :duration (= ?duration 267)  
+            :duration (= ?duration 98)  
             :condition (and 
             (at start (at ?r p5))
-            (at start (>= (battery-level ?r) 307))
+            (at start (>= (battery-level ?r) 113))
             )
             :effect (and
                 (at end (at ?r p9))
                 (at start (not (at ?r p5)))
-                (at end (decrease (battery-level ?r) 307))
+                (at end (decrease (battery-level ?r) 113))
             ))
 
             
 (:durative-action move-p5-p10
             :parameters (?r - robot)
-            :duration (= ?duration 359)  
+            :duration (= ?duration 36)  
             :condition (and 
             (at start (at ?r p5))
-            (at start (>= (battery-level ?r) 413))
+            (at start (>= (battery-level ?r) 42))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p5)))
-                (at end (decrease (battery-level ?r) 413))
+                (at end (decrease (battery-level ?r) 42))
             ))
 
             
 (:durative-action move-p6-p2
             :parameters (?r - robot)
-            :duration (= ?duration 266)  
+            :duration (= ?duration 184)  
             :condition (and 
             (at start (at ?r p6))
-            (at start (>= (battery-level ?r) 306))
+            (at start (>= (battery-level ?r) 212))
             )
             :effect (and
                 (at end (at ?r p2))
                 (at start (not (at ?r p6)))
-                (at end (decrease (battery-level ?r) 306))
+                (at end (decrease (battery-level ?r) 212))
             ))
 
             
 (:durative-action move-p6-p3
             :parameters (?r - robot)
-            :duration (= ?duration 327)  
+            :duration (= ?duration 50)  
             :condition (and 
             (at start (at ?r p6))
-            (at start (>= (battery-level ?r) 376))
+            (at start (>= (battery-level ?r) 58))
             )
             :effect (and
                 (at end (at ?r p3))
                 (at start (not (at ?r p6)))
-                (at end (decrease (battery-level ?r) 376))
+                (at end (decrease (battery-level ?r) 58))
             ))
 
             
 (:durative-action move-p6-p4
             :parameters (?r - robot)
-            :duration (= ?duration 393)  
+            :duration (= ?duration 43)  
             :condition (and 
             (at start (at ?r p6))
-            (at start (>= (battery-level ?r) 452))
+            (at start (>= (battery-level ?r) 49))
             )
             :effect (and
                 (at end (at ?r p4))
                 (at start (not (at ?r p6)))
-                (at end (decrease (battery-level ?r) 452))
+                (at end (decrease (battery-level ?r) 49))
             ))
 
             
 (:durative-action move-p6-p5
             :parameters (?r - robot)
-            :duration (= ?duration 146)  
+            :duration (= ?duration 14)  
             :condition (and 
             (at start (at ?r p6))
-            (at start (>= (battery-level ?r) 168))
+            (at start (>= (battery-level ?r) 17))
             )
             :effect (and
                 (at end (at ?r p5))
                 (at start (not (at ?r p6)))
-                (at end (decrease (battery-level ?r) 168))
+                (at end (decrease (battery-level ?r) 17))
             ))
 
             
 (:durative-action move-p6-p7
             :parameters (?r - robot)
-            :duration (= ?duration 112)  
+            :duration (= ?duration 206)  
             :condition (and 
             (at start (at ?r p6))
-            (at start (>= (battery-level ?r) 129))
+            (at start (>= (battery-level ?r) 237))
             )
             :effect (and
                 (at end (at ?r p7))
                 (at start (not (at ?r p6)))
-                (at end (decrease (battery-level ?r) 129))
+                (at end (decrease (battery-level ?r) 237))
             ))
 
             
 (:durative-action move-p6-p8
             :parameters (?r - robot)
-            :duration (= ?duration 432)  
+            :duration (= ?duration 194)  
             :condition (and 
             (at start (at ?r p6))
-            (at start (>= (battery-level ?r) 497))
+            (at start (>= (battery-level ?r) 223))
             )
             :effect (and
                 (at end (at ?r p8))
                 (at start (not (at ?r p6)))
-                (at end (decrease (battery-level ?r) 497))
+                (at end (decrease (battery-level ?r) 223))
             ))
 
             
 (:durative-action move-p6-p9
             :parameters (?r - robot)
-            :duration (= ?duration 239)  
+            :duration (= ?duration 71)  
             :condition (and 
             (at start (at ?r p6))
-            (at start (>= (battery-level ?r) 275))
+            (at start (>= (battery-level ?r) 82))
             )
             :effect (and
                 (at end (at ?r p9))
                 (at start (not (at ?r p6)))
-                (at end (decrease (battery-level ?r) 275))
+                (at end (decrease (battery-level ?r) 82))
             ))
 
             
 (:durative-action move-p6-p10
             :parameters (?r - robot)
-            :duration (= ?duration 464)  
+            :duration (= ?duration 23)  
             :condition (and 
             (at start (at ?r p6))
-            (at start (>= (battery-level ?r) 534))
+            (at start (>= (battery-level ?r) 26))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p6)))
-                (at end (decrease (battery-level ?r) 534))
+                (at end (decrease (battery-level ?r) 26))
             ))
 
             
 (:durative-action move-p7-p2
             :parameters (?r - robot)
-            :duration (= ?duration 260)  
+            :duration (= ?duration 73)  
             :condition (and 
             (at start (at ?r p7))
-            (at start (>= (battery-level ?r) 299))
+            (at start (>= (battery-level ?r) 84))
             )
             :effect (and
                 (at end (at ?r p2))
                 (at start (not (at ?r p7)))
-                (at end (decrease (battery-level ?r) 299))
+                (at end (decrease (battery-level ?r) 84))
             ))
 
             
 (:durative-action move-p7-p3
             :parameters (?r - robot)
-            :duration (= ?duration 321)  
+            :duration (= ?duration 158)  
             :condition (and 
             (at start (at ?r p7))
-            (at start (>= (battery-level ?r) 370))
+            (at start (>= (battery-level ?r) 182))
             )
             :effect (and
                 (at end (at ?r p3))
                 (at start (not (at ?r p7)))
-                (at end (decrease (battery-level ?r) 370))
+                (at end (decrease (battery-level ?r) 182))
             ))
 
             
 (:durative-action move-p7-p4
             :parameters (?r - robot)
-            :duration (= ?duration 390)  
+            :duration (= ?duration 181)  
             :condition (and 
             (at start (at ?r p7))
-            (at start (>= (battery-level ?r) 449))
+            (at start (>= (battery-level ?r) 208))
             )
             :effect (and
                 (at end (at ?r p4))
                 (at start (not (at ?r p7)))
-                (at end (decrease (battery-level ?r) 449))
+                (at end (decrease (battery-level ?r) 208))
             ))
 
             
 (:durative-action move-p7-p5
             :parameters (?r - robot)
-            :duration (= ?duration 140)  
+            :duration (= ?duration 195)  
             :condition (and 
             (at start (at ?r p7))
-            (at start (>= (battery-level ?r) 162))
+            (at start (>= (battery-level ?r) 225))
             )
             :effect (and
                 (at end (at ?r p5))
                 (at start (not (at ?r p7)))
-                (at end (decrease (battery-level ?r) 162))
+                (at end (decrease (battery-level ?r) 225))
             ))
 
             
 (:durative-action move-p7-p6
             :parameters (?r - robot)
-            :duration (= ?duration 112)  
+            :duration (= ?duration 174)  
             :condition (and 
             (at start (at ?r p7))
-            (at start (>= (battery-level ?r) 129))
+            (at start (>= (battery-level ?r) 200))
             )
             :effect (and
                 (at end (at ?r p6))
                 (at start (not (at ?r p7)))
-                (at end (decrease (battery-level ?r) 129))
+                (at end (decrease (battery-level ?r) 200))
             ))
 
             
 (:durative-action move-p7-p8
             :parameters (?r - robot)
-            :duration (= ?duration 427)  
+            :duration (= ?duration 145)  
             :condition (and 
             (at start (at ?r p7))
-            (at start (>= (battery-level ?r) 491))
+            (at start (>= (battery-level ?r) 166))
             )
             :effect (and
                 (at end (at ?r p8))
                 (at start (not (at ?r p7)))
-                (at end (decrease (battery-level ?r) 491))
+                (at end (decrease (battery-level ?r) 166))
             ))
 
             
 (:durative-action move-p7-p9
             :parameters (?r - robot)
-            :duration (= ?duration 131)  
+            :duration (= ?duration 139)  
             :condition (and 
             (at start (at ?r p7))
-            (at start (>= (battery-level ?r) 151))
+            (at start (>= (battery-level ?r) 160))
             )
             :effect (and
                 (at end (at ?r p9))
                 (at start (not (at ?r p7)))
-                (at end (decrease (battery-level ?r) 151))
+                (at end (decrease (battery-level ?r) 160))
             ))
 
             
 (:durative-action move-p7-p10
             :parameters (?r - robot)
-            :duration (= ?duration 459)  
+            :duration (= ?duration 212)  
             :condition (and 
             (at start (at ?r p7))
-            (at start (>= (battery-level ?r) 528))
+            (at start (>= (battery-level ?r) 244))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p7)))
-                (at end (decrease (battery-level ?r) 528))
+                (at end (decrease (battery-level ?r) 244))
             ))
 
             
 (:durative-action move-p8-p2
             :parameters (?r - robot)
-            :duration (= ?duration 169)  
+            :duration (= ?duration 107)  
             :condition (and 
             (at start (at ?r p8))
-            (at start (>= (battery-level ?r) 194))
+            (at start (>= (battery-level ?r) 123))
             )
             :effect (and
                 (at end (at ?r p2))
                 (at start (not (at ?r p8)))
-                (at end (decrease (battery-level ?r) 194))
+                (at end (decrease (battery-level ?r) 123))
             ))
 
             
 (:durative-action move-p8-p3
             :parameters (?r - robot)
-            :duration (= ?duration 136)  
+            :duration (= ?duration 236)  
             :condition (and 
             (at start (at ?r p8))
-            (at start (>= (battery-level ?r) 156))
+            (at start (>= (battery-level ?r) 271))
             )
             :effect (and
                 (at end (at ?r p3))
                 (at start (not (at ?r p8)))
-                (at end (decrease (battery-level ?r) 156))
+                (at end (decrease (battery-level ?r) 271))
             ))
 
             
 (:durative-action move-p8-p4
             :parameters (?r - robot)
-            :duration (= ?duration 64)  
+            :duration (= ?duration 235)  
             :condition (and 
             (at start (at ?r p8))
-            (at start (>= (battery-level ?r) 74))
+            (at start (>= (battery-level ?r) 270))
             )
             :effect (and
                 (at end (at ?r p4))
                 (at start (not (at ?r p8)))
-                (at end (decrease (battery-level ?r) 74))
+                (at end (decrease (battery-level ?r) 270))
             ))
 
             
 (:durative-action move-p8-p5
             :parameters (?r - robot)
-            :duration (= ?duration 327)  
+            :duration (= ?duration 207)  
             :condition (and 
             (at start (at ?r p8))
-            (at start (>= (battery-level ?r) 376))
+            (at start (>= (battery-level ?r) 238))
             )
             :effect (and
                 (at end (at ?r p5))
                 (at start (not (at ?r p8)))
-                (at end (decrease (battery-level ?r) 376))
+                (at end (decrease (battery-level ?r) 238))
             ))
 
             
 (:durative-action move-p8-p6
             :parameters (?r - robot)
-            :duration (= ?duration 432)  
+            :duration (= ?duration 194)  
             :condition (and 
             (at start (at ?r p8))
-            (at start (>= (battery-level ?r) 496))
+            (at start (>= (battery-level ?r) 223))
             )
             :effect (and
                 (at end (at ?r p6))
                 (at start (not (at ?r p8)))
-                (at end (decrease (battery-level ?r) 496))
+                (at end (decrease (battery-level ?r) 223))
             ))
 
             
 (:durative-action move-p8-p7
             :parameters (?r - robot)
-            :duration (= ?duration 426)  
+            :duration (= ?duration 145)  
             :condition (and 
             (at start (at ?r p8))
-            (at start (>= (battery-level ?r) 490))
+            (at start (>= (battery-level ?r) 167))
             )
             :effect (and
                 (at end (at ?r p7))
                 (at start (not (at ?r p8)))
-                (at end (decrease (battery-level ?r) 490))
+                (at end (decrease (battery-level ?r) 167))
             ))
 
             
 (:durative-action move-p8-p9
             :parameters (?r - robot)
-            :duration (= ?duration 553)  
+            :duration (= ?duration 112)  
             :condition (and 
             (at start (at ?r p8))
-            (at start (>= (battery-level ?r) 636))
+            (at start (>= (battery-level ?r) 128))
             )
             :effect (and
                 (at end (at ?r p9))
                 (at start (not (at ?r p8)))
-                (at end (decrease (battery-level ?r) 636))
+                (at end (decrease (battery-level ?r) 128))
             ))
 
             
 (:durative-action move-p8-p10
             :parameters (?r - robot)
-            :duration (= ?duration 66)  
+            :duration (= ?duration 184)  
             :condition (and 
             (at start (at ?r p8))
-            (at start (>= (battery-level ?r) 77))
+            (at start (>= (battery-level ?r) 211))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p8)))
-                (at end (decrease (battery-level ?r) 77))
+                (at end (decrease (battery-level ?r) 211))
             ))
 
             
 (:durative-action move-p9-p2
             :parameters (?r - robot)
-            :duration (= ?duration 387)  
+            :duration (= ?duration 102)  
             :condition (and 
             (at start (at ?r p9))
-            (at start (>= (battery-level ?r) 445))
+            (at start (>= (battery-level ?r) 117))
             )
             :effect (and
                 (at end (at ?r p2))
                 (at start (not (at ?r p9)))
-                (at end (decrease (battery-level ?r) 445))
+                (at end (decrease (battery-level ?r) 117))
             ))
 
             
 (:durative-action move-p9-p3
             :parameters (?r - robot)
-            :duration (= ?duration 448)  
+            :duration (= ?duration 127)  
             :condition (and 
             (at start (at ?r p9))
-            (at start (>= (battery-level ?r) 515))
+            (at start (>= (battery-level ?r) 146))
             )
             :effect (and
                 (at end (at ?r p3))
                 (at start (not (at ?r p9)))
-                (at end (decrease (battery-level ?r) 515))
+                (at end (decrease (battery-level ?r) 146))
             ))
 
             
 (:durative-action move-p9-p4
             :parameters (?r - robot)
-            :duration (= ?duration 517)  
+            :duration (= ?duration 126)  
             :condition (and 
             (at start (at ?r p9))
-            (at start (>= (battery-level ?r) 595))
+            (at start (>= (battery-level ?r) 145))
             )
             :effect (and
                 (at end (at ?r p4))
                 (at start (not (at ?r p9)))
-                (at end (decrease (battery-level ?r) 595))
+                (at end (decrease (battery-level ?r) 145))
             ))
 
             
 (:durative-action move-p9-p5
             :parameters (?r - robot)
-            :duration (= ?duration 267)  
+            :duration (= ?duration 98)  
             :condition (and 
             (at start (at ?r p9))
-            (at start (>= (battery-level ?r) 307))
+            (at start (>= (battery-level ?r) 113))
             )
             :effect (and
                 (at end (at ?r p5))
                 (at start (not (at ?r p9)))
-                (at end (decrease (battery-level ?r) 307))
+                (at end (decrease (battery-level ?r) 113))
             ))
 
             
 (:durative-action move-p9-p6
             :parameters (?r - robot)
-            :duration (= ?duration 239)  
+            :duration (= ?duration 85)  
             :condition (and 
             (at start (at ?r p9))
-            (at start (>= (battery-level ?r) 275))
+            (at start (>= (battery-level ?r) 98))
             )
             :effect (and
                 (at end (at ?r p6))
                 (at start (not (at ?r p9)))
-                (at end (decrease (battery-level ?r) 275))
+                (at end (decrease (battery-level ?r) 98))
             ))
 
             
 (:durative-action move-p9-p7
             :parameters (?r - robot)
-            :duration (= ?duration 131)  
+            :duration (= ?duration 140)  
             :condition (and 
             (at start (at ?r p9))
-            (at start (>= (battery-level ?r) 151))
+            (at start (>= (battery-level ?r) 161))
             )
             :effect (and
                 (at end (at ?r p7))
                 (at start (not (at ?r p9)))
-                (at end (decrease (battery-level ?r) 151))
+                (at end (decrease (battery-level ?r) 161))
             ))
 
             
 (:durative-action move-p9-p8
             :parameters (?r - robot)
-            :duration (= ?duration 554)  
+            :duration (= ?duration 112)  
             :condition (and 
             (at start (at ?r p9))
-            (at start (>= (battery-level ?r) 637))
+            (at start (>= (battery-level ?r) 128))
             )
             :effect (and
                 (at end (at ?r p8))
                 (at start (not (at ?r p9)))
-                (at end (decrease (battery-level ?r) 637))
+                (at end (decrease (battery-level ?r) 128))
             ))
 
             
 (:durative-action move-p9-p10
             :parameters (?r - robot)
-            :duration (= ?duration 586)  
+            :duration (= ?duration 75)  
             :condition (and 
             (at start (at ?r p9))
-            (at start (>= (battery-level ?r) 673))
+            (at start (>= (battery-level ?r) 87))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p9)))
-                (at end (decrease (battery-level ?r) 673))
+                (at end (decrease (battery-level ?r) 87))
             ))
 
             
 (:durative-action move-p10-p2
             :parameters (?r - robot)
-            :duration (= ?duration 201)  
+            :duration (= ?duration 174)  
             :condition (and 
             (at start (at ?r p10))
-            (at start (>= (battery-level ?r) 231))
+            (at start (>= (battery-level ?r) 200))
             )
             :effect (and
                 (at end (at ?r p2))
                 (at start (not (at ?r p10)))
-                (at end (decrease (battery-level ?r) 231))
+                (at end (decrease (battery-level ?r) 200))
             ))
 
             
 (:durative-action move-p10-p3
             :parameters (?r - robot)
-            :duration (= ?duration 141)  
+            :duration (= ?duration 71)  
             :condition (and 
             (at start (at ?r p10))
-            (at start (>= (battery-level ?r) 162))
+            (at start (>= (battery-level ?r) 82))
             )
             :effect (and
                 (at end (at ?r p3))
                 (at start (not (at ?r p10)))
-                (at end (decrease (battery-level ?r) 162))
+                (at end (decrease (battery-level ?r) 82))
             ))
 
             
 (:durative-action move-p10-p4
             :parameters (?r - robot)
-            :duration (= ?duration 69)  
+            :duration (= ?duration 64)  
             :condition (and 
             (at start (at ?r p10))
-            (at start (>= (battery-level ?r) 80))
+            (at start (>= (battery-level ?r) 74))
             )
             :effect (and
                 (at end (at ?r p4))
                 (at start (not (at ?r p10)))
-                (at end (decrease (battery-level ?r) 80))
+                (at end (decrease (battery-level ?r) 74))
             ))
 
             
 (:durative-action move-p10-p5
             :parameters (?r - robot)
-            :duration (= ?duration 360)  
+            :duration (= ?duration 36)  
             :condition (and 
             (at start (at ?r p10))
-            (at start (>= (battery-level ?r) 414))
+            (at start (>= (battery-level ?r) 42))
             )
             :effect (and
                 (at end (at ?r p5))
                 (at start (not (at ?r p10)))
-                (at end (decrease (battery-level ?r) 414))
+                (at end (decrease (battery-level ?r) 42))
             ))
 
             
 (:durative-action move-p10-p6
             :parameters (?r - robot)
-            :duration (= ?duration 464)  
+            :duration (= ?duration 23)  
             :condition (and 
             (at start (at ?r p10))
-            (at start (>= (battery-level ?r) 534))
+            (at start (>= (battery-level ?r) 26))
             )
             :effect (and
                 (at end (at ?r p6))
                 (at start (not (at ?r p10)))
-                (at end (decrease (battery-level ?r) 534))
+                (at end (decrease (battery-level ?r) 26))
             ))
 
             
 (:durative-action move-p10-p7
             :parameters (?r - robot)
-            :duration (= ?duration 459)  
+            :duration (= ?duration 212)  
             :condition (and 
             (at start (at ?r p10))
-            (at start (>= (battery-level ?r) 528))
+            (at start (>= (battery-level ?r) 244))
             )
             :effect (and
                 (at end (at ?r p7))
                 (at start (not (at ?r p10)))
-                (at end (decrease (battery-level ?r) 528))
+                (at end (decrease (battery-level ?r) 244))
             ))
 
             
 (:durative-action move-p10-p8
             :parameters (?r - robot)
-            :duration (= ?duration 67)  
+            :duration (= ?duration 184)  
             :condition (and 
             (at start (at ?r p10))
-            (at start (>= (battery-level ?r) 77))
+            (at start (>= (battery-level ?r) 211))
             )
             :effect (and
                 (at end (at ?r p8))
                 (at start (not (at ?r p10)))
-                (at end (decrease (battery-level ?r) 77))
+                (at end (decrease (battery-level ?r) 211))
             ))
 
             
 (:durative-action move-p10-p9
             :parameters (?r - robot)
-            :duration (= ?duration 586)  
+            :duration (= ?duration 75)  
             :condition (and 
             (at start (at ?r p10))
-            (at start (>= (battery-level ?r) 674))
+            (at start (>= (battery-level ?r) 86))
             )
             :effect (and
                 (at end (at ?r p9))
                 (at start (not (at ?r p10)))
-                (at end (decrease (battery-level ?r) 674))
+                (at end (decrease (battery-level ?r) 86))
             ))
 
             
 (:durative-action move-p1-p2
             :parameters (?r - robot)
-            :duration (= ?duration 198)  
+            :duration (= ?duration 130)  
             :condition (and 
             (at start (at ?r p1))
-            (at start (>= (battery-level ?r) 228))
+            (at start (>= (battery-level ?r) 150))
             )
             :effect (and
                 (at end (at ?r p2))
                 (at start (not (at ?r p1)))
-                (at end (decrease (battery-level ?r) 228))
+                (at end (decrease (battery-level ?r) 150))
             ))
 
             
 (:durative-action move-p1-p3
             :parameters (?r - robot)
-            :duration (= ?duration 137)  
+            :duration (= ?duration 95)  
             :condition (and 
             (at start (at ?r p1))
-            (at start (>= (battery-level ?r) 158))
+            (at start (>= (battery-level ?r) 109))
             )
             :effect (and
                 (at end (at ?r p3))
                 (at start (not (at ?r p1)))
-                (at end (decrease (battery-level ?r) 158))
+                (at end (decrease (battery-level ?r) 109))
             ))
 
             
 (:durative-action move-p1-p4
             :parameters (?r - robot)
-            :duration (= ?duration 66)  
+            :duration (= ?duration 95)  
             :condition (and 
             (at start (at ?r p1))
-            (at start (>= (battery-level ?r) 76))
+            (at start (>= (battery-level ?r) 109))
             )
             :effect (and
                 (at end (at ?r p4))
                 (at start (not (at ?r p1)))
-                (at end (decrease (battery-level ?r) 76))
+                (at end (decrease (battery-level ?r) 109))
             ))
 
             
 (:durative-action move-p1-p5
             :parameters (?r - robot)
-            :duration (= ?duration 356)  
+            :duration (= ?duration 67)  
             :condition (and 
             (at start (at ?r p1))
-            (at start (>= (battery-level ?r) 410))
+            (at start (>= (battery-level ?r) 77))
             )
             :effect (and
                 (at end (at ?r p5))
                 (at start (not (at ?r p1)))
-                (at end (decrease (battery-level ?r) 410))
+                (at end (decrease (battery-level ?r) 77))
             ))
 
             
 (:durative-action move-p1-p6
             :parameters (?r - robot)
-            :duration (= ?duration 461)  
+            :duration (= ?duration 53)  
             :condition (and 
             (at start (at ?r p1))
-            (at start (>= (battery-level ?r) 530))
+            (at start (>= (battery-level ?r) 61))
             )
             :effect (and
                 (at end (at ?r p6))
                 (at start (not (at ?r p1)))
-                (at end (decrease (battery-level ?r) 530))
+                (at end (decrease (battery-level ?r) 61))
             ))
 
             
 (:durative-action move-p1-p7
             :parameters (?r - robot)
-            :duration (= ?duration 456)  
+            :duration (= ?duration 168)  
             :condition (and 
             (at start (at ?r p1))
-            (at start (>= (battery-level ?r) 524))
+            (at start (>= (battery-level ?r) 194))
             )
             :effect (and
                 (at end (at ?r p7))
                 (at start (not (at ?r p1)))
-                (at end (decrease (battery-level ?r) 524))
+                (at end (decrease (battery-level ?r) 194))
             ))
 
             
 (:durative-action move-p1-p8
             :parameters (?r - robot)
-            :duration (= ?duration 63)  
+            :duration (= ?duration 140)  
             :condition (and 
             (at start (at ?r p1))
-            (at start (>= (battery-level ?r) 73))
+            (at start (>= (battery-level ?r) 162))
             )
             :effect (and
                 (at end (at ?r p8))
                 (at start (not (at ?r p1)))
-                (at end (decrease (battery-level ?r) 73))
+                (at end (decrease (battery-level ?r) 162))
             ))
 
             
 (:durative-action move-p1-p9
             :parameters (?r - robot)
-            :duration (= ?duration 582)  
+            :duration (= ?duration 31)  
             :condition (and 
             (at start (at ?r p1))
-            (at start (>= (battery-level ?r) 670))
+            (at start (>= (battery-level ?r) 36))
             )
             :effect (and
                 (at end (at ?r p9))
                 (at start (not (at ?r p1)))
-                (at end (decrease (battery-level ?r) 670))
+                (at end (decrease (battery-level ?r) 36))
             ))
 
             
 (:durative-action move-p1-p10
             :parameters (?r - robot)
-            :duration (= ?duration 4)  
+            :duration (= ?duration 44)  
             :condition (and 
             (at start (at ?r p1))
-            (at start (>= (battery-level ?r) 5))
+            (at start (>= (battery-level ?r) 50))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p1)))
-                (at end (decrease (battery-level ?r) 5))
+                (at end (decrease (battery-level ?r) 50))
             ))
 
             
 (:durative-action move-p2-p10
             :parameters (?r - robot)
-            :duration (= ?duration 201)  
+            :duration (= ?duration 174)  
             :condition (and 
             (at start (at ?r p2))
-            (at start (>= (battery-level ?r) 231))
+            (at start (>= (battery-level ?r) 201))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p2)))
-                (at end (decrease (battery-level ?r) 231))
+                (at end (decrease (battery-level ?r) 201))
             ))
 
             
 (:durative-action move-p3-p10
             :parameters (?r - robot)
-            :duration (= ?duration 141)  
+            :duration (= ?duration 71)  
             :condition (and 
             (at start (at ?r p3))
-            (at start (>= (battery-level ?r) 162))
+            (at start (>= (battery-level ?r) 82))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p3)))
-                (at end (decrease (battery-level ?r) 162))
+                (at end (decrease (battery-level ?r) 82))
             ))
 
             
 (:durative-action move-p4-p10
             :parameters (?r - robot)
-            :duration (= ?duration 69)  
+            :duration (= ?duration 64)  
             :condition (and 
             (at start (at ?r p4))
-            (at start (>= (battery-level ?r) 79))
+            (at start (>= (battery-level ?r) 74))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p4)))
-                (at end (decrease (battery-level ?r) 79))
+                (at end (decrease (battery-level ?r) 74))
             ))
 
             
 (:durative-action move-p5-p10
             :parameters (?r - robot)
-            :duration (= ?duration 359)  
+            :duration (= ?duration 36)  
             :condition (and 
             (at start (at ?r p5))
-            (at start (>= (battery-level ?r) 413))
+            (at start (>= (battery-level ?r) 42))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p5)))
-                (at end (decrease (battery-level ?r) 413))
+                (at end (decrease (battery-level ?r) 42))
             ))
 
             
 (:durative-action move-p6-p10
             :parameters (?r - robot)
-            :duration (= ?duration 464)  
+            :duration (= ?duration 23)  
             :condition (and 
             (at start (at ?r p6))
-            (at start (>= (battery-level ?r) 534))
+            (at start (>= (battery-level ?r) 26))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p6)))
-                (at end (decrease (battery-level ?r) 534))
+                (at end (decrease (battery-level ?r) 26))
             ))
 
             
 (:durative-action move-p7-p10
             :parameters (?r - robot)
-            :duration (= ?duration 459)  
+            :duration (= ?duration 212)  
             :condition (and 
             (at start (at ?r p7))
-            (at start (>= (battery-level ?r) 528))
+            (at start (>= (battery-level ?r) 244))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p7)))
-                (at end (decrease (battery-level ?r) 528))
+                (at end (decrease (battery-level ?r) 244))
             ))
 
             
 (:durative-action move-p8-p10
             :parameters (?r - robot)
-            :duration (= ?duration 67)  
+            :duration (= ?duration 184)  
             :condition (and 
             (at start (at ?r p8))
-            (at start (>= (battery-level ?r) 77))
+            (at start (>= (battery-level ?r) 212))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p8)))
-                (at end (decrease (battery-level ?r) 77))
+                (at end (decrease (battery-level ?r) 212))
             ))
 
             
 (:durative-action move-p9-p10
             :parameters (?r - robot)
-            :duration (= ?duration 586)  
+            :duration (= ?duration 75)  
             :condition (and 
             (at start (at ?r p9))
-            (at start (>= (battery-level ?r) 674))
+            (at start (>= (battery-level ?r) 87))
             )
             :effect (and
                 (at end (at ?r p10))
                 (at start (not (at ?r p9)))
-                (at end (decrease (battery-level ?r) 674))
+                (at end (decrease (battery-level ?r) 87))
             ))
 
             
 
         (:durative-action charge
             :parameters (?r - robot ?p - position)
-            :duration (= ?duration 0.1)
+            :duration (= ?duration 1)
             :condition (and (at start (at ?r ?p))
             (at start (has-station ?p))
             ) 
             :effect 
-                (at end  (increase (battery-level ?r) 0.5) )
+                (at end  (increase (battery-level ?r) 5) )
         )
         
     )
