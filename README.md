@@ -1,15 +1,14 @@
 # Maze Solver Robot with Charging Station
 ## Overview
 
-This project involves a robot designed to autonomously navigate and solve unknown mazes while locating and utilizing the charging stations that are scattered around the map.
+This project involves a robot designed to autonomously navigate and solve unknown mazes with battery constraints while utilizing the charging stations that are scattered around the map.
 
-The robot uses hierarchical planning where on the high-level to select which charging station to go to, and a low-level planning to motion plan to the exit of the maze.
-On the high-level planning, it uses POPF planner which is a temporal-numeric planner and a corresponding pddl file. The low-level planning is achieved using move_base package that uses a global path planner and a local path planner, where it uses the gmapping pkg to map with slam in real time. 
+The robot uses hierarchical planning where on the high-level to select which charging station/goal to go to, and a low-level planning to motion plan to the reach the selected point.
+On the high-level planning, it uses POPF planner which is a temporal-numeric planner and a corresponding pddl file. The low-level planning is achieved using move_base package that uses a global path planner (Dijkstra) and a local path planner (DWA), where it uses the hector_slam pkg to map with slam in real time. 
 
 Built on ROS Noetic, this system integrates various sensors and algorithms for effective maze exploration and navigation.
 
 ## Table of Contents
-* Features
 * Installation
 * Usage
 * License
@@ -74,7 +73,19 @@ export TURTLEBOT3_MODEL=burger
 source ~/.bashrc
 ```
 
-8. Additional Installation for ROSPlan
+8. Clone the project
+    
+```
+cd ~/catkin_ws/src
+git clone https://github.com/edenhindi/MazeNavigator.git
+```
+
+9. Install Hector Slam
+```
+sudo apt-get install ros-noetic-hector-slam
+```
+
+10. Additional Installation for ROSPlan
 
 You will also need to install the ROSPlan package. Follow the instructions to install the dependencies in the ROSplan repository and then run the following commands
 ```
@@ -82,8 +93,11 @@ cd ~/catkin_ws/src
 git clone -b noetic-devel https://github.com/oscar-lima/ROSPlan.git
 ```
 
+
 ## Usage
-After installation, you can launch the robot simulation and begin exploring mazes. Follow the instructions specific to your scripts for operating the robot and managing its navigation tasks.
+After installation, you can launch the robot simulation and begin exploring mazes. Follow the instructions specific to your scripts for operating the robot and managing its navigation tasks. 
+
+Open 3 screens (Ideally using Terminator)
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
