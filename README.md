@@ -11,6 +11,7 @@ Built on ROS Noetic, this system integrates various sensors and algorithms for e
 ## Table of Contents
 * Installation
 * Usage
+* Video Demonstrations
 * License
 * Contributors
   
@@ -97,7 +98,26 @@ git clone -b noetic-devel https://github.com/oscar-lima/ROSPlan.git
 ## Usage
 After installation, you can launch the robot simulation and begin exploring mazes. Follow the instructions specific to your scripts for operating the robot and managing its navigation tasks. 
 
-Open 3 screens (Ideally using Terminator)
+Open 3 windows in wsl/linux (Ideally using Terminator if you are using Windows OS)
+```
+# first screen
+cd catkin_ws
+roscore
+
+# second screen
+cd catkin_ws
+roslaunch final_project master.launch
+
+# third screen
+roslaunch final_project robot.launch
+```
+
+## Video Demonstrations
+we supply 3 videos of us running the robot in different environment and replan strategies, each video demonstrates the code instructions and the full run of the robot
+* [small maze denostration with replan every 1000 new discovered maze squares](https://technion.zoom.us/rec/share/U-LGZJFz0aL1HQMjInJ_WjZcg1g3gdB3yTLeH8J8CHurTv4s5sviVIABbqUGWxVB.Mde2hhelcq17XzKu?startTime=1732460844000) password:991^f%t8
+* [medium maze denostration with replan every 100s](https://technion.zoom.us/rec/share/pRUdyBw5RsJYV5skkUzshCUPcAWX5RC3qfv2aXEIjy2M3N__wU8_5r2kJBIwoRna.IKRpV-FILxEC30xO?startTime=1732462466000) password:7eF%0TZ=
+* [hard medium maze denostration with replan every 80s](https://technion.zoom.us/rec/share/cdENqDnr6n29Aw7qUibNweSde2ps4pe9Cmc1XzRkf9txkKR1CuSKm_T1SnT3UPIA.UiG_9E_bHDgxO595?startTime=1732467186000) password:G0Y821q!
+
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
